@@ -36,6 +36,10 @@ pattern = r'```(.*?)```'
 match = re.search(pattern, response2.text, re.DOTALL)
 html_code = match.group(1).strip()
 
+response3 = model.generate_content([f'refine the html code according to the image, the page should look very polished as if it was coded by a pro frontend developer: {html_code}', img])
+match = re.search(pattern, response2.text, re.DOTALL)
+html_code = match.group(1).strip()
+
 with open('output.html', 'w') as file:
   file.write(html_code)
 print('done')
